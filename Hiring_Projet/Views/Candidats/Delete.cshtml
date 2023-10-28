@@ -1,0 +1,80 @@
+﻿@model Hiring_Projet.Models.Candidat
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Candidat</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nom_candidat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nom_candidat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.prénom_candidat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.prénom_candidat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.âge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.âge)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.titre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.titre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.diplôme)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.diplôme)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre_année_expérience)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre_année_expérience)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CV)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

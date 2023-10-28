@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Hiring_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Candidat">
+    <Key>
+      <PropertyRef Name="id_candidat" />
+    </Key>
+    <Property Name="id_candidat" Type="Int32" Nullable="false" />
+    <Property Name="nom_candidat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="prénom_candidat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="âge" Type="Int32" />
+    <Property Name="titre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="diplôme" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="nombre_année_expérience" Type="Int32" />
+    <Property Name="CV" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Offre">
+    <Key>
+      <PropertyRef Name="id_offre" />
+    </Key>
+    <Property Name="id_offre" Type="Int32" Nullable="false" />
+    <Property Name="id_recruteur" Type="Int32" />
+    <Property Name="type_contrat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="secteur" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="profil" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="poste" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="rémunération" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Recruteur">
+    <Key>
+      <PropertyRef Name="id_recruteur" />
+    </Key>
+    <Property Name="id_recruteur" Type="Int32" Nullable="false" />
+    <Property Name="nom_recruteur" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Tel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Mail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="Hiring_DBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Candidat" EntityType="Self.Candidat" />
+    <EntitySet Name="Offre" EntityType="Self.Offre" />
+    <EntitySet Name="Recruteur" EntityType="Self.Recruteur" />
+  </EntityContainer>
+</Schema>

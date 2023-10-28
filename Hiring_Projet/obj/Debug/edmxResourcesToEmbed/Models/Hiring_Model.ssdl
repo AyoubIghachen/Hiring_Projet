@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Hiring_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Candidat">
+    <Key>
+      <PropertyRef Name="id_candidat" />
+    </Key>
+    <Property Name="id_candidat" Type="int" Nullable="false" />
+    <Property Name="nom_candidat" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="prénom_candidat" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="âge" Type="int" />
+    <Property Name="titre" Type="nvarchar(max)" />
+    <Property Name="diplôme" Type="nvarchar(max)" />
+    <Property Name="nombre_année_expérience" Type="int" />
+    <Property Name="CV" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Offre">
+    <Key>
+      <PropertyRef Name="id_offre" />
+    </Key>
+    <Property Name="id_offre" Type="int" Nullable="false" />
+    <Property Name="id_recruteur" Type="int" />
+    <Property Name="type_contrat" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="secteur" Type="nvarchar(max)" />
+    <Property Name="profil" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="poste" Type="nvarchar(max)" />
+    <Property Name="rémunération" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Recruteur">
+    <Key>
+      <PropertyRef Name="id_recruteur" />
+    </Key>
+    <Property Name="id_recruteur" Type="int" Nullable="false" />
+    <Property Name="nom_recruteur" Type="nvarchar(max)" />
+    <Property Name="Tel" Type="nvarchar(max)" />
+    <Property Name="Mail" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityContainer Name="Hiring_DBModelStoreContainer">
+    <EntitySet Name="Candidat" EntityType="Self.Candidat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Offre" EntityType="Self.Offre" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Recruteur" EntityType="Self.Recruteur" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

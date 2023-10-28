@@ -1,0 +1,74 @@
+﻿@model Hiring_Projet.Models.Candidat
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Candidat</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nom_candidat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nom_candidat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.prénom_candidat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.prénom_candidat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.âge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.âge)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.titre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.titre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.diplôme)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.diplôme)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre_année_expérience)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre_année_expérience)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CV)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_candidat }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

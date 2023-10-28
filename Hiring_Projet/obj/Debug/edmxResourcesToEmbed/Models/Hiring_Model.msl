@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Hiring_DBModelStoreContainer" CdmEntityContainer="Hiring_DBEntities">
+    <EntitySetMapping Name="Candidat">
+      <EntityTypeMapping TypeName="Hiring_DBModel.Candidat">
+        <MappingFragment StoreEntitySet="Candidat">
+          <ScalarProperty Name="id_candidat" ColumnName="id_candidat" />
+          <ScalarProperty Name="nom_candidat" ColumnName="nom_candidat" />
+          <ScalarProperty Name="prénom_candidat" ColumnName="prénom_candidat" />
+          <ScalarProperty Name="âge" ColumnName="âge" />
+          <ScalarProperty Name="titre" ColumnName="titre" />
+          <ScalarProperty Name="diplôme" ColumnName="diplôme" />
+          <ScalarProperty Name="nombre_année_expérience" ColumnName="nombre_année_expérience" />
+          <ScalarProperty Name="CV" ColumnName="CV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Offre">
+      <EntityTypeMapping TypeName="Hiring_DBModel.Offre">
+        <MappingFragment StoreEntitySet="Offre">
+          <ScalarProperty Name="id_offre" ColumnName="id_offre" />
+          <ScalarProperty Name="id_recruteur" ColumnName="id_recruteur" />
+          <ScalarProperty Name="type_contrat" ColumnName="type_contrat" />
+          <ScalarProperty Name="secteur" ColumnName="secteur" />
+          <ScalarProperty Name="profil" ColumnName="profil" />
+          <ScalarProperty Name="poste" ColumnName="poste" />
+          <ScalarProperty Name="rémunération" ColumnName="rémunération" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Recruteur">
+      <EntityTypeMapping TypeName="Hiring_DBModel.Recruteur">
+        <MappingFragment StoreEntitySet="Recruteur">
+          <ScalarProperty Name="id_recruteur" ColumnName="id_recruteur" />
+          <ScalarProperty Name="nom_recruteur" ColumnName="nom_recruteur" />
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

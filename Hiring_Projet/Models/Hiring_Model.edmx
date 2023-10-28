@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Hiring_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Candidat">
+          <Key>
+            <PropertyRef Name="id_candidat" />
+          </Key>
+          <Property Name="id_candidat" Type="int" Nullable="false" />
+          <Property Name="nom_candidat" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="prénom_candidat" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="âge" Type="int" />
+          <Property Name="titre" Type="nvarchar(max)" />
+          <Property Name="diplôme" Type="nvarchar(max)" />
+          <Property Name="nombre_année_expérience" Type="int" />
+          <Property Name="CV" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Offre">
+          <Key>
+            <PropertyRef Name="id_offre" />
+          </Key>
+          <Property Name="id_offre" Type="int" Nullable="false" />
+          <Property Name="id_recruteur" Type="int" />
+          <Property Name="type_contrat" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="secteur" Type="nvarchar(max)" />
+          <Property Name="profil" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="poste" Type="nvarchar(max)" />
+          <Property Name="rémunération" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Recruteur">
+          <Key>
+            <PropertyRef Name="id_recruteur" />
+          </Key>
+          <Property Name="id_recruteur" Type="int" Nullable="false" />
+          <Property Name="nom_recruteur" Type="nvarchar(max)" />
+          <Property Name="Tel" Type="nvarchar(max)" />
+          <Property Name="Mail" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityContainer Name="Hiring_DBModelStoreContainer">
+          <EntitySet Name="Candidat" EntityType="Self.Candidat" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Offre" EntityType="Self.Offre" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Recruteur" EntityType="Self.Recruteur" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Hiring_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Candidat">
+          <Key>
+            <PropertyRef Name="id_candidat" />
+          </Key>
+          <Property Name="id_candidat" Type="Int32" Nullable="false" />
+          <Property Name="nom_candidat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="prénom_candidat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="âge" Type="Int32" />
+          <Property Name="titre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="diplôme" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="nombre_année_expérience" Type="Int32" />
+          <Property Name="CV" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Offre">
+          <Key>
+            <PropertyRef Name="id_offre" />
+          </Key>
+          <Property Name="id_offre" Type="Int32" Nullable="false" />
+          <Property Name="id_recruteur" Type="Int32" />
+          <Property Name="type_contrat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="secteur" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="profil" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="poste" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="rémunération" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Recruteur">
+          <Key>
+            <PropertyRef Name="id_recruteur" />
+          </Key>
+          <Property Name="id_recruteur" Type="Int32" Nullable="false" />
+          <Property Name="nom_recruteur" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Tel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Mail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="Hiring_DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Candidat" EntityType="Self.Candidat" />
+          <EntitySet Name="Offre" EntityType="Self.Offre" />
+          <EntitySet Name="Recruteur" EntityType="Self.Recruteur" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Hiring_DBModelStoreContainer" CdmEntityContainer="Hiring_DBEntities">
+          <EntitySetMapping Name="Candidat">
+            <EntityTypeMapping TypeName="Hiring_DBModel.Candidat">
+              <MappingFragment StoreEntitySet="Candidat">
+                <ScalarProperty Name="id_candidat" ColumnName="id_candidat" />
+                <ScalarProperty Name="nom_candidat" ColumnName="nom_candidat" />
+                <ScalarProperty Name="prénom_candidat" ColumnName="prénom_candidat" />
+                <ScalarProperty Name="âge" ColumnName="âge" />
+                <ScalarProperty Name="titre" ColumnName="titre" />
+                <ScalarProperty Name="diplôme" ColumnName="diplôme" />
+                <ScalarProperty Name="nombre_année_expérience" ColumnName="nombre_année_expérience" />
+                <ScalarProperty Name="CV" ColumnName="CV" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Offre">
+            <EntityTypeMapping TypeName="Hiring_DBModel.Offre">
+              <MappingFragment StoreEntitySet="Offre">
+                <ScalarProperty Name="id_offre" ColumnName="id_offre" />
+                <ScalarProperty Name="id_recruteur" ColumnName="id_recruteur" />
+                <ScalarProperty Name="type_contrat" ColumnName="type_contrat" />
+                <ScalarProperty Name="secteur" ColumnName="secteur" />
+                <ScalarProperty Name="profil" ColumnName="profil" />
+                <ScalarProperty Name="poste" ColumnName="poste" />
+                <ScalarProperty Name="rémunération" ColumnName="rémunération" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Recruteur">
+            <EntityTypeMapping TypeName="Hiring_DBModel.Recruteur">
+              <MappingFragment StoreEntitySet="Recruteur">
+                <ScalarProperty Name="id_recruteur" ColumnName="id_recruteur" />
+                <ScalarProperty Name="nom_recruteur" ColumnName="nom_recruteur" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

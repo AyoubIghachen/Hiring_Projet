@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Hiring_Projet.Models.Recruteur>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nom_recruteur)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mail)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nom_recruteur)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mail)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_recruteur }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_recruteur }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_recruteur })
+        </td>
+    </tr>
+}
+
+</table>

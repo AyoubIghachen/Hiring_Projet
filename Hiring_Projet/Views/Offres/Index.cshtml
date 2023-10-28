@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Hiring_Projet.Models.Offre>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+
+<form method="get" asp-action="Index">
+
+    <p>
+        <input type="search" placeholder="Enter secteur ou profil ou renumeration " value="@ViewData["GetOffredetails"]" name="Offresearch" style="width:500px;" />
+        <input type="submit" value="Search" class="btn btn-primary" />
+        <a asp-action="Index"> GET ALL OFFRE </a>
+    </p>
+
+
+</form>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.id_recruteur)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.type_contrat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.secteur)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.profil)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.poste)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rémunération)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_recruteur)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.type_contrat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.secteur)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.profil)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.poste)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.rémunération)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id_offre }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id_offre }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id_offre })
+            </td>
+        </tr>
+    }
+
+</table>

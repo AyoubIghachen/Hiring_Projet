@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Hiring_Projet.Models.Candidat>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nom_candidat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.prénom_candidat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.âge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.titre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.diplôme)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre_année_expérience)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CV)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nom_candidat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.prénom_candidat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.âge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.titre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.diplôme)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre_année_expérience)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CV)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_candidat }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_candidat }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_candidat })
+        </td>
+    </tr>
+}
+
+</table>
